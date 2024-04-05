@@ -1,5 +1,13 @@
-const Client = require('ssh2').Client
+cmds = [
+  'cat readme',
+  'cat ./-',
+  "cat 'spaces in this filename'",
+  'cat ./inhere/.hidden',	
+  "file ./inhere/* | grep  ASCII | sed 's/:.*//i' | xargs cat",
+]
 
+const Client = require('ssh2').Client
+const fs = require('fs')
 function runCmd(usr, pass, command) {
   return new Promise((resolve, reject) => {
     const sshClient = new Client()
@@ -41,10 +49,16 @@ const solve = (cmds, i=0, prev='bandit0') => {
     })
 }
 
-cmds = [
-  'cat readme',
-  'cat ./-',
-  'ls -a',  
-]
-
-solve(cmds);
+if (fs.existsSync('./resultados.txt')) {
+  const pws = fs.readFileSync('./resultados.txt')
+  .toString()
+  .trim()
+  .split('\n')
+  .filter(e=>e!=='')
+  
+  solve(cmds.slice(pws.length), pws.length, pws[pws.length-1]);
+} else {
+  fs.writeFileSync('./resultados.txt', '')
+  const pws = []
+  solve(cmds.slice(pws.length), pws.length, pws[pws.length-1]);
+}
