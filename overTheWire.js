@@ -1,6 +1,6 @@
 const Client = require('ssh2').Client
-const fs = require('fs')
-function hit(usr, pass, command) {
+
+function runCmd(usr, pass, command) {
   return new Promise((resolve, reject) => {
     const sshClient = new Client()
     const connectionParams = {
@@ -31,14 +31,20 @@ function hit(usr, pass, command) {
   })
 }
 
-hit('bandit0', 'bandit0', 'cat readme')
-  .then((pw) => {
-    return hit('bandit1', pw, 'cat ./-')
-  })
-  .then((pw) => {
-    return hit('bandit2', pw, 'ls -a')
-  })
-  .catch((err) => {
-    console.log('ERROR  ', err)
-  })
+const solve = (cmds, i=0, prev='bandit0') => {
+  if (cmds.length === 0) {
+    return;
+  }
+  runCmd(`bandit${i}`, prev, cmds[0])
+    .then(pw => {
+      solve(cmds.slice(1), i+1, pw)
+    })
+}
 
+cmds = [
+  'cat readme',
+  'cat ./-',
+  'ls -a',  
+]
+
+solve(cmds);
