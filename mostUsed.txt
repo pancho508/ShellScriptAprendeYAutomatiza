@@ -1,0 +1,84 @@
+### VIM Basic Navigation
+- `h, j, k, l` - Move left, down, up, right (similar to arrow keys)
+- `w, b` - Move forward, backward by word
+- `0, $` - Move to the beginning, end of a line
+- `gg, G` - Move to the beginning, end of the file
+- `Ctrl+u, Ctrl+d` - Move up, down half a screen
+- `Ctrl+b, Ctrl+f` - Move back, forward one full screen
+
+### Editing Commands
+- `i, a` - Insert mode before, after the cursor
+- `o, O` - Insert a new line below, above the current line
+- `dd` - Delete the current line
+- `yy` - Copy (yank) the current line
+- `p, P` - Paste below, above the current line
+- `u` - Undo the last action
+- `Ctrl+r` - Redo the last undone action
+- `r` - Replace a single character
+- `cw` - Change (replace) to the end of a word
+
+### Advanced Features
+- `:e <filename>` - Open a file
+- `:split, :vsplit` - Split the window horizontally, vertically
+- `/searchterm` - Search for `searchterm` forward
+- `?searchterm` - Search for `searchterm` backward
+- `n, N` - Repeat the search in the same, opposite direction
+- `:%s/old/new/g` - Replace all occurrences of `old` with `new`
+- `:set number` - Show line numbers
+- `:noh` - Remove search highlighting
+
+### Modes
+- Normal Mode - The default mode for navigation and commands
+- Insert Mode - For inserting text
+- Visual Mode - For selecting blocks of text
+- Command-Line Mode - For entering commands
+
+### Configuration
+- `.vimrc` - A configuration file where you can set your preferences and shortcuts.
+
+
+### UNIX SHELL Navigation and File Manipulation -------------------------------------------------------------
+- `pwd` - Print the current directory.
+- `rmdir <directory>` - Remove an empty directory.
+- `rm <file>` - Remove a file. Use `-r` for directories to remove directories and their contents recursively.
+- `cp <source> <destination>` - Copy files or directories.
+- `mv <source> <destination>` - Move or rename files or directories.
+
+### File Viewing and Manipulation
+- `cat <file>` - Display the contents of a file.
+- `less <file>` - View the content of a file one page at a time.
+- `head <file>` - Display the first few lines of a file.
+- `tail <file>` - Display the last few lines of a file. Use `-f` to follow the file as it grows.
+- `grep <pattern> <file>` - Search for a pattern in a file or files.
+- `find <directory> -name <pattern>` - Find files and directories by name.
+- `wc <file>` - Count the number of lines, words, and characters in a file.
+
+### System Information and Management
+- `top` - Display real-time system processes in an interactive interface.
+- `ps` - Show a snapshot of current processes.
+- `kill <pid>` - Terminate a process with the given PID (Process ID).
+- `chmod <permissions> <file>` - Change the permissions of a file or directory.
+- `chown <owner>:<group> <file>` - Change the owner and group of a file or directory.
+
+### Networking
+- `ping <hostname>` - Check the network connectivity to a host.
+- `curl <URL>` - Transfer data from or to a server.
+- `wget <URL>` - Download files from the internet.
+
+### Shell Scripting and Control Structures
+- Writing shell scripts (`.sh`) to automate tasks.
+- Using loops (`for`, `while`) and conditionals (`if`, `else`, `case`) in scripts.
+- Defining and using variables and environment variables.
+
+### Command Redirection and Piping
+- `>` to redirect output to a file. 
+- >> append to the end of a file. 
+- `<` to redirect input from a file.
+- `|` to pipe the output of one command to the input of another, chaining commands together.
+
+### Miscellaneous
+- `echo <text>` - Display a line of text.
+- `alias <name>='<command>'` - Create an alias for a command.
+- `history` - Display the command history.
+- `which <command>` - Show the full path of a command.
+- `man <command>` - Display the manual page for a command.
