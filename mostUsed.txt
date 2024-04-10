@@ -82,3 +82,12 @@
 - `history` - Display the command history.
 - `which <command>` - Show the full path of a command.
 - `man <command>` - Display the manual page for a command.
+
+Little KWEL Scripts ----------------------
+
+while [ true ]; 
+do ping -t 3 google.com && say "INTERNET RESTORED" && break;
+echo "STILL NO INTERNET $(date)";
+done
+
+osascript -e 'display notification "This is the description " with title "I am an alert "'

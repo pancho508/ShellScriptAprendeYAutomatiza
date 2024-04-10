@@ -4,6 +4,7 @@ cmds = [
   "cat 'spaces in this filename'",
   'cat ./inhere/.hidden',	
   "file ./inhere/* | grep  ASCII | sed 's/:.*//i' | xargs cat",
+  "find . -size 1033c -exec cat {} \\; | grep . -m 1",
 ]
 
 const Client = require('ssh2').Client
