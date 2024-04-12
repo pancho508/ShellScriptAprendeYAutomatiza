@@ -6,6 +6,7 @@ cmds = [
   "file ./inhere/* | grep  ASCII | sed 's/:.*//i' | xargs cat",
   "find . -size 1033c -exec cat {} \\; | grep . -m 1",
   "find . -size 1033c | xargs cat | xargs",
+  "find / -size 33c -user bandit7 -group bandit6 -type f 2> /dev/null | xargs cat"
 ]
 
 const Client = require('ssh2').Client
